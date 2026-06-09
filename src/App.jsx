@@ -10,6 +10,7 @@ import SectionNav from './components/SectionNav'
 import CustomCursor from './components/CustomCursor'
 import Preloader from './components/Preloader'
 import Statement from './components/Statement'
+import Stats from './components/Stats'
 import './App.css'
 
 function App() {
@@ -55,6 +56,8 @@ function App() {
         <Marquee />
 
         <Skills />
+
+        <Stats />
 
         <Contact />
       </main>
