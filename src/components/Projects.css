@@ -190,6 +190,22 @@
   }
 }
 
+/* touch: overlay sempre visibile, niente tilt */
+@media (pointer: coarse) {
+  .proj-overlay {
+    opacity: 1;
+    background: linear-gradient(
+      to top,
+      rgba(13, 13, 11, 0.92) 0%,
+      rgba(13, 13, 11, 0.18) 42%,
+      transparent 62%
+    );
+  }
+  .proj-card:hover .proj-img {
+    transform: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .proj-img,
   .proj-overlay {

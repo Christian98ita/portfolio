@@ -252,6 +252,11 @@
     display: none;
   }
 }
+@media (max-width: 520px) {
+  .hero-scatter-index {
+    display: none;
+  }
+}
 
 /* ---- CTAs ---- */
 

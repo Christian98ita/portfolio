@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import './Projects.css'
 
@@ -96,6 +96,21 @@ function ProjectCard({ project, index }) {
     if (stillMoving) rafRef.current = requestAnimationFrame(animate)
     else rafRef.current = null
   }
+
+  useEffect(() => {
+    const v = vidRef.current
+    if (!v) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) v.play().catch(() => {})
+        else { v.pause(); v.currentTime = 0 }
+      },
+      { threshold: 0.25 }
+    )
+    obs.observe(v)
+    return () => obs.disconnect()
+  }, [])
 
   const onMouseEnter = () => {
     vidRef.current?.play().catch(() => {})

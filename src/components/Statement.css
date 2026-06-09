@@ -76,3 +76,16 @@
     -webkit-text-stroke-width: 1.5px;
   }
 }
+
+@media (max-width: 480px) {
+  .stmt-section {
+    padding-left: clamp(16px, 5vw, 32px);
+    padding-right: clamp(16px, 5vw, 32px);
+  }
+  .stmt-line {
+    font-size: clamp(3rem, 16vw, 4.2rem);
+  }
+  .stmt-line--outline {
+    -webkit-text-stroke-width: 1px;
+  }
+}
