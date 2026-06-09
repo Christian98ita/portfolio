@@ -1,0 +1,230 @@
+.skills-section {
+  position: relative;
+  background: var(--paper);
+  color: var(--ink);
+  padding: clamp(64px, 11vw, 160px) clamp(20px, 5vw, 64px);
+}
+
+/* ---- Intro (shared rhythm with Timeline / Projects) ---- */
+
+.skills-intro {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px, 2.6vw, 26px);
+}
+.skills-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-mute);
+}
+.skills-kicker-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--lime);
+}
+.skills-heading {
+  font-size: clamp(1.9rem, 5.2vw, 3.2rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  max-width: 22ch;
+}
+.skills-heading em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--ink);
+  background: linear-gradient(transparent 62%, rgba(168, 224, 0, 0.55) 0%);
+  padding: 0 0.05em;
+}
+.skills-lede {
+  font-family: var(--mono);
+  font-size: clamp(0.82rem, 1.4vw, 0.96rem);
+  line-height: 1.7;
+  color: var(--fg-mute);
+  max-width: 58ch;
+}
+
+/* ---- Tool spotlight: Blender, the constant across every project ---- */
+
+.skill-tool {
+  display: flex;
+  align-items: center;
+  gap: clamp(22px, 3.4vw, 44px);
+  max-width: 980px;
+  margin: clamp(56px, 8vw, 100px) auto 0;
+  padding: clamp(28px, 4vw, 46px) clamp(26px, 4vw, 50px);
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 4px;
+}
+.skill-tool-icon {
+  flex-shrink: 0;
+  width: clamp(60px, 8vw, 88px);
+  height: clamp(60px, 8vw, 88px);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1.5px solid var(--lime);
+  color: var(--lime);
+}
+.skill-tool-icon .skill-icon {
+  width: 54%;
+  height: 54%;
+}
+.skill-tool-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.skill-tool-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lime);
+}
+.skill-tool-name {
+  font-size: clamp(1.6rem, 4.2vw, 2.6rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.skill-tool-text {
+  font-family: var(--mono);
+  font-size: clamp(0.78rem, 1.2vw, 0.88rem);
+  line-height: 1.7;
+  color: rgba(244, 242, 234, 0.62);
+  max-width: 56ch;
+  margin-top: 4px;
+}
+.skill-tool-presence {
+  flex-shrink: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(244, 242, 234, 0.5);
+  white-space: nowrap;
+  border-left: 1px solid rgba(244, 242, 234, 0.18);
+  padding-left: clamp(18px, 2.4vw, 30px);
+}
+@media (max-width: 760px) {
+  .skill-tool {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+  .skill-tool-presence {
+    border-left: none;
+    border-top: 1px solid rgba(244, 242, 234, 0.18);
+    padding-left: 0;
+    padding-top: 14px;
+  }
+}
+
+/* ---- Discipline index: a specimen list rather than a grid of cards ---- */
+
+.skill-index {
+  list-style: none;
+  margin: clamp(8px, 1vw, 16px) auto 0;
+  padding: 0;
+  max-width: 980px;
+}
+.skill-row {
+  display: grid;
+  grid-template-columns: 2.4em 2.4em 1fr auto;
+  align-items: center;
+  gap: clamp(14px, 2.2vw, 30px);
+  padding: clamp(16px, 2.4vw, 23px) 6px;
+  border-top: 1px solid rgba(13, 13, 11, 0.12);
+  transition: background 0.4s ease;
+}
+.skill-index li:last-child {
+  border-bottom: 1px solid rgba(13, 13, 11, 0.12);
+}
+.skill-row:hover {
+  background: rgba(168, 224, 0, 0.08);
+}
+.skill-row-n {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--fg-mute);
+}
+.skill-row-icon {
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  transition: color 0.35s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.skill-row-icon .skill-icon {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+.skill-row:hover .skill-row-icon {
+  color: var(--lime);
+  transform: scale(1.15) rotate(-8deg);
+}
+.skill-row-name {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(1.05rem, 2.4vw, 1.45rem);
+  letter-spacing: -0.01em;
+}
+.skill-row-meta {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 1.8vw, 20px);
+  justify-self: end;
+}
+.skill-row-bar {
+  position: relative;
+  width: clamp(64px, 9vw, 124px);
+  height: 2px;
+  background: rgba(13, 13, 11, 0.14);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.skill-row-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 100%;
+  background: var(--lime);
+  border-radius: 2px;
+  transform-origin: left;
+}
+.skill-row-count {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--fg-mute);
+  white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .skill-row {
+    grid-template-columns: 2em 2.2em 1fr;
+  }
+  .skill-row-meta {
+    grid-column: 1 / -1;
+    justify-self: start;
+    padding-left: calc(2em + 2.2em + 14px);
+    margin-top: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-row-icon {
+    transition: none;
+  }
+}

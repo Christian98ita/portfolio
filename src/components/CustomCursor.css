@@ -1,0 +1,68 @@
+.cursor-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.cursor-layer.is-visible {
+  opacity: 1;
+}
+
+body {
+  cursor: none;
+}
+@media (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+}
+
+.cursor-dot,
+.cursor-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  will-change: transform;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  background: var(--paper);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.cursor-ring {
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border: 1.5px solid rgba(244, 242, 234, 0.7);
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    margin 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* Light sections (Storia, Competenze) — switch to dark cursor */
+.cursor-layer.is-light .cursor-dot {
+  background: var(--ink);
+}
+.cursor-layer.is-light .cursor-ring {
+  border-color: rgba(13, 13, 11, 0.6);
+}
+
+.cursor-layer.is-link .cursor-dot {
+  opacity: 0;
+}
+.cursor-layer.is-link .cursor-ring {
+  width: 88px;
+  height: 88px;
+  margin: -44px 0 0 -44px;
+  background: var(--lime);
+  border-color: var(--lime);
+}

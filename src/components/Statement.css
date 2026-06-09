@@ -1,0 +1,78 @@
+.stmt-section {
+  background: var(--paper);
+  color: var(--ink);
+  padding: clamp(96px, 16vw, 200px) clamp(20px, 7vw, 96px);
+  overflow: hidden;
+}
+
+.stmt-inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 1px;
+}
+
+/* ── label ───────────────────────────────────────────────── */
+.stmt-label {
+  font-family: var(--mono);
+  font-size: clamp(0.65rem, 1.1vw, 0.78rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(13, 13, 11, 0.38);
+  margin-bottom: clamp(40px, 6vw, 72px);
+  display: block;
+}
+
+/* ── headline ────────────────────────────────────────────── */
+.stmt-text {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: clamp(40px, 6vw, 80px);
+}
+
+.stmt-line {
+  display: block;
+  font-family: var(--display);
+  font-size: clamp(4.2rem, 13vw, 12rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.93;
+}
+
+.stmt-line--fill {
+  color: var(--ink);
+}
+
+.stmt-line--outline {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--ink);
+  font-style: italic;
+}
+
+.stmt-line--lime {
+  color: var(--lime);
+  font-style: italic;
+}
+
+/* ── sub text ────────────────────────────────────────────── */
+.stmt-sub {
+  font-family: var(--mono);
+  font-size: clamp(0.78rem, 1.3vw, 0.96rem);
+  line-height: 1.8;
+  color: rgba(13, 13, 11, 0.5);
+  max-width: 46ch;
+}
+
+/* ── bottom rule ─────────────────────────────────────────── */
+.stmt-rule {
+  height: 1px;
+  background: rgba(13, 13, 11, 0.12);
+  margin-top: clamp(48px, 8vw, 96px);
+  transform-origin: left;
+}
+
+@media (max-width: 640px) {
+  .stmt-line--outline {
+    -webkit-text-stroke-width: 1.5px;
+  }
+}

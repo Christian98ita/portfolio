@@ -1,0 +1,75 @@
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* ── counter ─────────────────────────────────────────────── */
+.preloader-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preloader-count {
+  font-family: var(--display);
+  font-size: clamp(7rem, 20vw, 18rem);
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1;
+  color: var(--lime);
+  letter-spacing: -0.04em;
+  user-select: none;
+  /* subtle outline ghost at -1px offset adds depth */
+  text-shadow:
+    2px  2px 0 rgba(200, 255, 80, 0.08),
+   -2px -2px 0 rgba(200, 255, 80, 0.04);
+}
+
+/* ── progress bar ─────────────────────────────────────────── */
+.preloader-bar-wrap {
+  width: 100%;
+  padding: 0 clamp(24px, 5vw, 64px);
+  margin-bottom: clamp(20px, 3vw, 40px);
+}
+
+.preloader-bar {
+  width: 100%;
+  height: 1px;
+  background: rgba(244, 242, 234, 0.1);
+  overflow: hidden;
+}
+
+.preloader-fill {
+  width: 100%;
+  height: 100%;
+  background: var(--lime);
+  transform-origin: left center;
+  /* transform is driven by inline style */
+  transition: none;
+}
+
+/* ── footer labels ────────────────────────────────────────── */
+.preloader-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 clamp(24px, 5vw, 64px);
+  padding-bottom: clamp(20px, 3vw, 40px);
+}
+
+.preloader-name,
+.preloader-year {
+  font-family: var(--mono);
+  font-size: clamp(0.65rem, 1.1vw, 0.8rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(244, 242, 234, 0.35);
+}

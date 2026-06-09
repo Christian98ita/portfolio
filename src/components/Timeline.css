@@ -1,0 +1,172 @@
+.timeline-section {
+  position: relative;
+  background: var(--paper);
+  padding: clamp(64px, 11vw, 160px) clamp(20px, 5vw, 64px) clamp(56px, 9vw, 120px);
+  overflow: hidden;
+}
+
+/* ---- Intro block ---- */
+
+.timeline-intro {
+  max-width: 720px;
+  margin: 0 auto clamp(40px, 6vw, 72px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px, 2.6vw, 28px);
+}
+
+.timeline-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-mute);
+}
+.timeline-kicker-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--lime);
+}
+
+.timeline-heading {
+  font-size: clamp(1.9rem, 5.4vw, 3.4rem);
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  max-width: 18ch;
+}
+.timeline-heading em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--ink);
+  background: linear-gradient(transparent 62%, rgba(168, 224, 0, 0.55) 0%);
+  padding: 0 0.05em;
+}
+
+.timeline-lede {
+  font-family: var(--mono);
+  font-size: clamp(0.82rem, 1.4vw, 0.98rem);
+  line-height: 1.7;
+  color: var(--fg-mute);
+  max-width: 56ch;
+}
+
+/* ====================================================================
+   Chapter grid — editorial 2-column layout, compact and scalable.
+   Each chapter is a bordered cell; last item spans both columns.
+   ==================================================================== */
+
+.tl-grid {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid rgba(13, 13, 11, 0.1);
+  border-left: 1px solid rgba(13, 13, 11, 0.1);
+}
+
+.tl-chapter {
+  position: relative;
+  padding: clamp(28px, 4vw, 46px) clamp(24px, 3.5vw, 42px);
+  border-right: 1px solid rgba(13, 13, 11, 0.1);
+  border-bottom: 1px solid rgba(13, 13, 11, 0.1);
+  overflow: hidden;
+  transition: background 0.4s ease;
+}
+
+.tl-chapter::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--lime);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tl-chapter:hover {
+  background: rgba(168, 224, 0, 0.04);
+}
+
+.tl-chapter:hover::before {
+  transform: scaleY(1);
+}
+
+.tl-chapter:last-child {
+  grid-column: 1 / -1;
+}
+
+.tl-n {
+  display: block;
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(3rem, 7.5vw, 5.8rem);
+  line-height: 0.85;
+  color: transparent;
+  -webkit-text-stroke: 1.2px rgba(13, 13, 11, 0.14);
+  text-stroke: 1.2px rgba(13, 13, 11, 0.14);
+  margin-bottom: clamp(18px, 2.6vw, 30px);
+  user-select: none;
+  pointer-events: none;
+  transition: -webkit-text-stroke 0.4s ease, text-stroke 0.4s ease;
+}
+
+.tl-chapter:hover .tl-n {
+  -webkit-text-stroke: 1.2px var(--lime);
+  text-stroke: 1.2px var(--lime);
+}
+
+.tl-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--lime);
+  margin: 0 0 8px;
+}
+
+.tl-title {
+  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+
+.tl-text {
+  font-family: var(--mono);
+  font-size: clamp(0.78rem, 1.15vw, 0.86rem);
+  line-height: 1.75;
+  color: var(--fg-mute);
+  margin: 0;
+  max-width: 48ch;
+}
+
+@media (max-width: 760px) {
+  .tl-grid {
+    grid-template-columns: 1fr;
+  }
+  .tl-chapter:last-child {
+    grid-column: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tl-chapter,
+  .tl-chapter::before,
+  .tl-n {
+    transition: none;
+  }
+}

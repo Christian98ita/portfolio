@@ -1,0 +1,198 @@
+.projects-section {
+  position: relative;
+  background: var(--ink);
+  color: var(--paper);
+  padding: clamp(64px, 11vw, 160px) clamp(20px, 5vw, 64px);
+}
+
+/* ---- Intro ---- */
+
+.projects-intro {
+  max-width: 760px;
+  margin: 0 auto clamp(56px, 8vw, 100px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px, 2.6vw, 26px);
+}
+.projects-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(244, 242, 234, 0.55);
+}
+.projects-kicker-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--lime);
+}
+.projects-heading {
+  font-size: clamp(1.9rem, 5.2vw, 3.2rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  max-width: 20ch;
+}
+.projects-heading em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--lime);
+}
+.projects-lede {
+  font-family: var(--mono);
+  font-size: clamp(0.82rem, 1.4vw, 0.96rem);
+  line-height: 1.7;
+  color: rgba(244, 242, 234, 0.6);
+  max-width: 58ch;
+}
+.projects-count {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(244, 242, 234, 0.36);
+  margin-top: 2px;
+}
+
+/* ====================================================================
+   Project grid — compact gallery, scales naturally with more items:
+   add an entry to PROJECTS and it slots in automatically.
+   ==================================================================== */
+
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(6px, 1vw, 12px);
+  max-width: 1360px;
+  margin: clamp(40px, 6vw, 80px) auto 0;
+}
+
+.proj-card {
+  position: relative;
+}
+
+.proj-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  aspect-ratio: 3 / 4;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.proj-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.88) contrast(1.02);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.55s ease;
+}
+.proj-card:hover .proj-img {
+  transform: scale(1.07);
+  filter: saturate(1.05) contrast(1.03);
+}
+
+.proj-shine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.proj-card:hover .proj-shine {
+  opacity: 1;
+}
+
+.proj-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(13, 13, 11, 0.94) 0%,
+    rgba(13, 13, 11, 0.38) 45%,
+    transparent 68%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(12px, 1.6vw, 18px);
+  opacity: 0;
+  transition: opacity 0.38s ease;
+}
+.proj-card:hover .proj-overlay {
+  opacity: 1;
+}
+
+.proj-n {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--lime);
+  align-self: flex-start;
+}
+
+.proj-foot {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.proj-cat {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(244, 242, 234, 0.55);
+  margin: 0;
+}
+
+.proj-title {
+  font-size: clamp(0.95rem, 1.7vw, 1.2rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.proj-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0;
+}
+.proj-stack li {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(244, 242, 234, 0.62);
+  border: 1px solid rgba(244, 242, 234, 0.2);
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+
+@media (max-width: 880px) {
+  .proj-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .proj-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .proj-img,
+  .proj-overlay {
+    transition: none;
+  }
+}
