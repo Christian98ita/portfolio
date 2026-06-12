@@ -4,7 +4,7 @@ import './Stats.css'
 
 const STATS = [
   { value: 8,  suffix: '',  label: 'render & animazioni' },
-  { value: 3,  suffix: '+', label: 'anni di esperienza'  },
+  { value: 5,  suffix: '+', label: 'anni di esperienza'  },
   { value: 12, suffix: '+', label: 'progetti completati' },
   { value: 0,  suffix: '',  label: 'compromessi'         },
 ]

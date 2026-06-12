@@ -25,7 +25,17 @@
       "Bash(grep -rl \"serviceWorker\\\\|workbox\" src public index.html vite.config.*)",
       "Bash(cat vite.config.*)",
       "Bash(xxd -l 64 ProjektBlackbird.otf)",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "Bash(tasklist)",
+      "Bash(findstr -i node)",
+      "Bash(echo \"started with pid $!\")",
+      "Bash(timeout 30 bash -c 'until curl -sf http://localhost:5173 >/dev/null; do sleep 1; done')",
+      "Read(//c//**)",
+      "Bash(findstr -i play)",
+      "Bash(node _screenshot.mjs)",
+      "Bash(npx -y playwright@1.60.0 install chromium)",
+      "Bash(npx --yes --package=playwright@1.60.0 -- playwright install chromium)",
+      "Bash(findstr -i \"robot sitemap\")"
     ]
   }
 }
